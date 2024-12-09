@@ -8,7 +8,7 @@ class MainWin(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setGeometry(0, 0, 600, 600)
-        self.con = sqlite3.connect('coffee.sqlite')
+        self.con = sqlite3.connect('data/coffee.sqlite')
         self.cur = self.con.cursor()
         self.aaa = self.textEdit = QTextEdit(self)
         self.aaa.setGeometry(100, 100, 400, 400)
@@ -44,7 +44,7 @@ class Remake(QWidget):
 
 
     def rem(self):
-        self.con = sqlite3.connect("coffee.sqlite")
+        self.con = sqlite3.connect("data/coffee.sqlite")
         self.cur = self.con.cursor()
         self.cur.execute(self.inp.toPlainText())
         self.con.commit()
